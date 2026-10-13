@@ -33,7 +33,7 @@ A REST API for recording income and expenses per user, built with Django and Dja
 
 ## Database schema
 
-![Database schema](database-schema (1).svg)
+![Database schema](docs/database-schema (1).svg)
 
 ### auth_user
 
