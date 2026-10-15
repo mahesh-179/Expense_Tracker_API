@@ -33,4 +33,23 @@ class TransactionSerializer(serializers.ModelSerializer):
     # user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
     class Meta:
         model = Transaction
-        fields = '__all__'
+        fields = ['id','amount', 'type', 'remarks', 'date']
+
+
+    def validate_amount(self,data):
+         if data <=0:
+              raise serializers.ValidationError("Amount should be greater than 1")
+         if data > 10000:
+              raise serializers.ValidationError("Amount should be less than 10000")
+         return data
+
+    def validate_user(self,data):
+        if not Profile.objects.filter(user=data).exists():
+            raise serializers.ValidationError("User does not have a profile")
+        
+
+                                                          
+                                                           
+                                     
+                                    
+                           
