@@ -46,6 +46,9 @@ class TransactionSerializer(serializers.ModelSerializer):
     def validate_user(self,data):
         if not Profile.objects.filter(user=data).exists():
             raise serializers.ValidationError("User does not have a profile")
+
+
+
         
 
                                                           

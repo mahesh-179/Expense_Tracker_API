@@ -20,6 +20,7 @@ class Transaction(models.Model):
     type = models.CharField(max_length=10, choices=TransactionType.choices)
     remarks = models.TextField(blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    total_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"{self.user.username}'s Transaction - {self.amount} on {self.date}"
